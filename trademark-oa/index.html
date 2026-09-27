@@ -258,23 +258,6 @@ button,a.btn{
   line-height:1.9;
   font-size:14px;
 }
-.study-hint{
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:8px;
-  background:var(--blue2);
-  font-size:13px;
-  line-height:1.7;
-}
-.quick-links{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-.quick-links button{
-  font-weight:700;
-}
 
 .owner{
   font-size:12px;
@@ -363,16 +346,6 @@ footer{
       <li>表示された願番をコピーします。</li>
       <li>J-PlatPatで願番を検索し、「拒絶理由通知」の原文を確認します。</li>
     </ol>
-
-    <div class="study-hint">
-      まず見てみるなら、3-1-3（記述的商標）、4-1-11（先願に係る他人の登録商標）、
-      6-1（指定商品・指定役務の表示が不明確）あたりがおすすめです。
-      <div class="quick-links">
-        <button type="button" class="secondary quick-article" data-code="3-1-3">3-1-3を見る</button>
-        <button type="button" class="secondary quick-article" data-code="4-1-11">4-1-11を見る</button>
-        <button type="button" class="secondary quick-article" data-code="6-1">6-1を見る</button>
-      </div>
-    </div>
   </section>
 
   <section class="card">
@@ -673,22 +646,6 @@ document.getElementById("articleSelect")
     renderArticle(e.target.value);
   });
 
-document.querySelectorAll(".quick-article").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    const code = btn.dataset.code;
-    if(!DATA || !DATA.articles || !DATA.articles[code]){
-      showToast("この条文のデータはありません");
-      return;
-    }
-
-    document.getElementById("articleSelect").value = code;
-    renderArticle(code);
-    document.getElementById("articleResult")
-      .scrollIntoView({behavior:"smooth"});
-
-    trackEvent("quick_article_click",{article_code:code});
-  });
-});
 
 document.getElementById("copyAll")
   .addEventListener("click",()=>{
