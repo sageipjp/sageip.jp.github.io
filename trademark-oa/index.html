@@ -388,7 +388,7 @@ footer{
 
       <div class="actions">
         <button class="secondary" id="copyAll">
-          表示中の願番をコピー
+          このページの願番をコピー
         </button>
 
         <a class="btn secondary"
@@ -399,6 +399,12 @@ footer{
           J-PlatPatを開く
         </a>
       </div>
+    </div>
+
+    <div class="notice" style="margin:0 0 12px">
+      J-PlatPatでは一度に検索できる願番は最大100件のため、
+      このページでも100件ずつ表示しています。
+      101件以上ある場合は「次へ」で続きの願番を表示してください。
     </div>
 
     <div id="appList" class="app-list"></div>
@@ -582,6 +588,9 @@ function renderPage(){
   const end = Math.min(start+PAGE_SIZE,currentApps.length);
   const slice = currentApps.slice(start,end);
 
+  document.getElementById("copyAll").textContent =
+    `この${end-start}件の願番をコピー`;
+
   for(const app of slice){
     const row = document.createElement("div");
     row.className = "app-row";
@@ -625,7 +634,8 @@ function renderPage(){
   };
 
   const info = document.createElement("span");
-  info.textContent = `${currentPage} / ${pages}`;
+  info.textContent =
+    `${currentPage} / ${pages}ページ（${start+1}～${end}件）`;
 
   const next = document.createElement("button");
   next.className = "secondary";
