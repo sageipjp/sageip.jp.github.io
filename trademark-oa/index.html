@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>商願ＯＡ 条文検索 | セージ弁理士事務所</title>
-<meta name="description" content="商標登録出願の拒絶理由通知（Office Action）を適用条文から検索できる、セージ弁理士事務所の運営してるページです。">
+<title>商願ＯＡ 条文検索｜弁理士試験・商標法の実例</title>
+<meta name="description" content="弁理士試験の商標法学習や商標実務の確認に。実際の商標登録出願の拒絶理由通知（Office Action）を適用条文から探し、J-PlatPatで原文を確認できます。">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LF1T1NCVJG"></script>
@@ -30,9 +30,9 @@ function trackEvent(name, params){
   --text:#1f2933;
   --muted:#657789;
   --bg:#f6f8fb;
-  --cta:#e56a17;
-  --cta-dark:#bf530d;
-  --cta-bg:#fff7f0;
+  --cta:#1559a6;
+  --cta-dark:#0c447f;
+  --cta-bg:#f3f8ff;
 }
 *{box-sizing:border-box}
 body{
@@ -208,10 +208,10 @@ button,a.btn{
 }
 .toast.show{opacity:1}
 
-/* 営業導線 */
+/* 学習者向け案内 */
 .cta-card{
   background:var(--cta-bg);
-  border:1px solid #f2c8a9;
+  border:1px solid #c9dcf2;
   border-radius:10px;
   padding:22px;
   margin-bottom:18px;
@@ -219,7 +219,7 @@ button,a.btn{
 .cta-title{
   margin:0;
   font-size:20px;
-  color:#7a3608;
+  color:var(--blue-dark);
 }
 .cta-text{
   margin:10px 0 0;
@@ -246,6 +246,36 @@ button,a.btn{
   color:var(--blue);
   border:1px solid #b9c6d4;
 }
+
+.study-lead{
+  margin:0;
+  line-height:1.8;
+  font-size:15px;
+}
+.study-steps{
+  margin:14px 0 0;
+  padding-left:1.5em;
+  line-height:1.9;
+  font-size:14px;
+}
+.study-hint{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:8px;
+  background:var(--blue2);
+  font-size:13px;
+  line-height:1.7;
+}
+.quick-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.quick-links button{
+  font-weight:700;
+}
+
 .owner{
   font-size:12px;
   color:var(--muted);
@@ -287,18 +317,15 @@ footer{
       </a>
 
       <nav class="nav">
+        <a href="#howto">
+          使い方
+        </a>
+
         <a href="https://sageip.jp/column/trademark/officeaction/"
            target="_blank"
            rel="noopener"
            onclick="trackEvent('oa_guide_click',{location:'header'})">
           拒絶理由通知（ＯＡ）とは？
-        </a>
-
-        <a href="https://sageip.jp/contact/officeaction/"
-           target="_blank"
-           rel="noopener"
-           onclick="trackEvent('contact_click',{location:'header'})">
-          ＯＡ対応の相談
         </a>
 
         <a href="https://x.com/seiji_terada"
@@ -313,13 +340,40 @@ footer{
     <div class="hero">
       <h1>商願ＯＡ 条文検索</h1>
       <div class="sub">
-        商願の拒絶理由通知を、適用条文から検索できます。
+        弁理士試験・商標法の学習向け。実際に特許庁から通知された拒絶理由を、適用条文からたどれます。
       </div>
     </div>
   </div>
 </header>
 
 <main>
+
+  <section class="card" id="howto">
+    <div class="result-title" style="font-size:20px">
+      条文を「実際の拒絶理由通知」で確認する
+    </div>
+
+    <p class="study-lead">
+      条文だけを暗記するのではなく、実際にどのような商標登録出願で、
+      どのような理由が通知されているのかを確認するための学習用ページです。
+    </p>
+
+    <ol class="study-steps">
+      <li>下のメニューから確認したい適用条文を選びます。</li>
+      <li>表示された願番をコピーします。</li>
+      <li>J-PlatPatで願番を検索し、「拒絶理由通知」の原文を確認します。</li>
+    </ol>
+
+    <div class="study-hint">
+      まず見てみるなら、3-1-3（記述的商標）、4-1-11（先願に係る他人の登録商標）、
+      6-1（指定商品・指定役務の表示が不明確）あたりがおすすめです。
+      <div class="quick-links">
+        <button type="button" class="secondary quick-article" data-code="3-1-3">3-1-3を見る</button>
+        <button type="button" class="secondary quick-article" data-code="4-1-11">4-1-11を見る</button>
+        <button type="button" class="secondary quick-article" data-code="6-1">6-1を見る</button>
+      </div>
+    </div>
+  </section>
 
   <section class="card">
     <div>
@@ -334,11 +388,11 @@ footer{
 
   <section class="card">
     <div class="result-title" style="font-size:18px">
-      J-PlatPatで詳細を確認
+      J-PlatPatで実際のＯＡを確認
     </div>
 
     <p style="margin:10px 0 0;line-height:1.7;font-size:14px">
-      願番をコピーして、J-PlatPatで商標・指定商品役務・手続経過・拒絶理由通知の内容などをご確認ください。
+      願番をコピーしてJ-PlatPatで検索すると、商標、指定商品・指定役務、手続経過、実際の拒絶理由通知などを確認できます。
     </p>
 
     <div class="actions">
@@ -379,36 +433,21 @@ footer{
   </section>
 
   <section class="cta-card">
-    <h2 class="cta-title">拒絶理由通知を受け取った方へ</h2>
+    <h2 class="cta-title">このページが学習に役立ったら</h2>
 
     <p class="cta-text">
-      セージ弁理士事務所では、ご自身で商標登録出願をされた場合や、
-      他所で出願された場合でも、拒絶理由通知への途中からの対応を承っています。
+      Xの固定ポストに「いいね」を付けていただけるとうれしいです。
+      今後もデータを更新していく励みになります。
     </p>
 
     <div class="cta-actions">
+      <!-- ↓ このURLを、告知用のX固定ポストURLに差し替えてください -->
       <a class="btn cta-main"
-         href="https://sageip.jp/contact/officeaction/"
-         target="_blank"
-         rel="noopener"
-         onclick="trackEvent('consult_click',{location:'oa_cta'})">
-        拒絶理由通知の対応を相談する
-      </a>
-
-      <a class="btn cta-sub"
-         href="https://sageip.jp/"
-         target="_blank"
-         rel="noopener"
-         onclick="trackEvent('office_site_click',{location:'lower_cta'})">
-        事務所Webサイト
-      </a>
-
-      <a class="btn cta-sub"
          href="https://x.com/seiji_terada"
          target="_blank"
          rel="noopener"
-         onclick="trackEvent('x_click',{location:'lower_cta'})">
-        Xを見る
+         onclick="trackEvent('fixed_post_click',{location:'study_cta'})">
+        Xの固定ポストを見る
       </a>
     </div>
   </section>
@@ -417,8 +456,9 @@ footer{
     <div id="dataNote"></div>
 
     <div style="margin-top:8px">
-      願番をコピーして、J-PlatPatで詳細をご確認ください。
-      このページはJ-PlatPatとは独立した検索補助ページです。
+      願番をコピーして、J-PlatPatで原文をご確認ください。
+      このページはJ-PlatPatとは独立した学習・検索補助ページです。
+      掲載件数は本ページに収録したデータに基づくもので、すべての商標登録出願を示すものではありません。
     </div>
   </section>
 
@@ -432,13 +472,6 @@ footer{
          rel="noopener"
          onclick="trackEvent('office_site_click',{location:'footer'})">
         セージ弁理士事務所
-      </a>
-
-      <a href="https://sageip.jp/contact/officeaction/"
-         target="_blank"
-         rel="noopener"
-         onclick="trackEvent('contact_click',{location:'footer'})">
-        ＯＡ対応の相談
       </a>
 
       <a href="https://sageip.jp/column/trademark/officeaction/"
@@ -635,18 +668,27 @@ function renderPage(){
   pager.append(prev,info,next);
 }
 
-document.getElementById("articleSelect").value = code;
-      renderArticle(code);
-      document.getElementById("articleResult")
-        .scrollIntoView({behavior:"smooth"});
-    });
-  });
-}
-
 document.getElementById("articleSelect")
   .addEventListener("change",e=>{
     renderArticle(e.target.value);
   });
+
+document.querySelectorAll(".quick-article").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const code = btn.dataset.code;
+    if(!DATA || !DATA.articles || !DATA.articles[code]){
+      showToast("この条文のデータはありません");
+      return;
+    }
+
+    document.getElementById("articleSelect").value = code;
+    renderArticle(code);
+    document.getElementById("articleResult")
+      .scrollIntoView({behavior:"smooth"});
+
+    trackEvent("quick_article_click",{article_code:code});
+  });
+});
 
 document.getElementById("copyAll")
   .addEventListener("click",()=>{
