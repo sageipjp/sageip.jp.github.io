@@ -2,21 +2,697 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>商願ＯＡ 条文検索｜弁理士試験・商標法の実例</title>
+<meta name="description" content="弁理士試験の商標法学習や商標実務の確認に。実際の商標登録出願の拒絶理由通知（Office Action）を適用条文から探し、J-PlatPatで原文を確認できます。">
 
-<title>商標OA 条文検索</title>
-
-<meta http-equiv="refresh" content="0; url=trademark-oa/">
-
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LF1T1NCVJG"></script>
 <script>
-location.replace("trademark-oa/");
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-LF1T1NCVJG");
+
+function trackEvent(name, params){
+  if(typeof gtag === "function"){
+    gtag("event", name, params || {});
+  }
+}
 </script>
+
+<style>
+:root{
+  --blue:#1559a6;
+  --blue-dark:#0c447f;
+  --blue2:#eaf3ff;
+  --line:#d8e1ea;
+  --text:#1f2933;
+  --muted:#657789;
+  --bg:#f6f8fb;
+  --cta:#1559a6;
+  --cta-dark:#0c447f;
+  --cta-bg:#f3f8ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic","Meiryo",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+a{color:var(--blue)}
+header{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:980px;
+  margin:auto;
+  padding:18px;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+}
+.brand{
+  color:var(--blue);
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+}
+.nav{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:13px;
+}
+.nav a{
+  color:var(--blue);
+  text-decoration:none;
+}
+.hero{
+  margin-top:18px;
+}
+h1{
+  margin:0;
+  color:var(--blue);
+  font-size:25px;
+}
+.sub{
+  margin-top:6px;
+  color:var(--muted);
+  font-size:13px;
+}
+main{
+  max-width:980px;
+  margin:24px auto 60px;
+  padding:0 18px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:18px;
+}
+label{
+  display:block;
+  font-weight:700;
+  margin-bottom:8px;
+}
+select,input{
+  width:100%;
+  font-size:16px;
+  padding:11px 12px;
+  border:1px solid #b9c6d4;
+  border-radius:7px;
+  background:#fff;
+}
+@media(max-width:700px){
+  .topbar{align-items:flex-start;flex-direction:column}
+}
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+button,a.btn{
+  border:0;
+  border-radius:6px;
+  padding:9px 12px;
+  font-size:14px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+}
+.primary{
+  background:var(--blue);
+  color:#fff;
+}
+.secondary{
+  background:var(--blue2);
+  color:var(--blue);
+}
+.stat{
+  font-size:14px;
+  color:var(--muted);
+  margin-top:10px;
+}
+.result-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:end;
+  margin-bottom:12px;
+}
+.result-title{
+  font-size:22px;
+  font-weight:700;
+  color:var(--blue);
+}
+.count{
+  font-size:14px;
+  color:var(--muted);
+}
+.app-list{
+  border-top:1px solid var(--line);
+}
+.app-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 2px;
+  border-bottom:1px solid var(--line);
+}
+.appnum{
+  font-family:Consolas,"Courier New",monospace;
+  font-size:15px;
+}
+.row-actions{
+  display:flex;
+  gap:6px;
+  flex-shrink:0;
+}
+.row-actions button{
+  padding:6px 9px;
+}
+.pager{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:16px;
+  align-items:center;
+}
+.notice{
+  font-size:12px;
+  line-height:1.7;
+  color:var(--muted);
+}
+.hidden{display:none}
+.toast{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:#1f2d3d;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:7px;
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+}
+.toast.show{opacity:1}
+
+/* 学習者向け案内 */
+.cta-card{
+  background:var(--cta-bg);
+  border:1px solid #c9dcf2;
+  border-radius:10px;
+  padding:22px;
+  margin-bottom:18px;
+}
+.cta-title{
+  margin:0;
+  font-size:20px;
+  color:var(--blue-dark);
+}
+.cta-text{
+  margin:10px 0 0;
+  line-height:1.7;
+  font-size:14px;
+}
+.cta-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+.cta-main{
+  background:var(--cta);
+  color:#fff;
+  font-weight:700;
+  padding:11px 16px;
+}
+.cta-main:hover{
+  background:var(--cta-dark);
+}
+.cta-sub{
+  background:#fff;
+  color:var(--blue);
+  border:1px solid #b9c6d4;
+}
+
+.study-lead{
+  margin:0;
+  line-height:1.8;
+  font-size:15px;
+}
+.study-steps{
+  margin:14px 0 0;
+  padding-left:1.5em;
+  line-height:1.9;
+  font-size:14px;
+}
+
+.owner{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:10px;
+}
+footer{
+  border-top:1px solid var(--line);
+  background:#fff;
+}
+.footer-inner{
+  max-width:980px;
+  margin:auto;
+  padding:22px 18px 35px;
+  font-size:12px;
+  color:var(--muted);
+}
+.footer-links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.footer-links a{
+  text-decoration:none;
+}
+</style>
 </head>
 
 <body>
-<p>
-商標OA 条文検索へ移動します。<br>
-<a href="trademark-oa/">移動しない場合はこちらをクリックしてください。</a>
-</p>
+<header>
+  <div class="header-inner">
+    <div class="topbar">
+      <a class="brand"
+         href="https://sageip.jp/"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('office_site_click',{location:'header'})">
+        セージ弁理士事務所
+      </a>
+
+      <nav class="nav">
+        <a href="#howto">
+          使い方
+        </a>
+
+        <a href="https://sageip.jp/column/trademark/officeaction/"
+           target="_blank"
+           rel="noopener"
+           onclick="trackEvent('oa_guide_click',{location:'header'})">
+          拒絶理由通知（ＯＡ）とは？
+        </a>
+
+        <a href="https://x.com/seiji_terada"
+           target="_blank"
+           rel="noopener"
+           onclick="trackEvent('x_click',{location:'header'})">
+          X @seiji_terada
+        </a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <h1>商願ＯＡ 条文検索</h1>
+      <div class="sub">
+        弁理士試験・商標法の学習向け。実際に特許庁から通知された拒絶理由を、適用条文からたどれます。
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="card" id="howto">
+    <div class="result-title" style="font-size:20px">
+      条文を「実際の拒絶理由通知」で確認する
+    </div>
+
+    <p class="study-lead">
+      条文だけを暗記するのではなく、実際にどのような商標登録出願で、
+      どのような理由が通知されているのかを確認するための学習用ページです。
+    </p>
+
+    <ol class="study-steps">
+      <li>下のメニューから確認したい適用条文を選びます。</li>
+      <li>表示された願番をコピーします。</li>
+      <li>J-PlatPatで願番を検索し、「拒絶理由通知」の原文を確認します。</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <div>
+      <label for="articleSelect">条文から探す</label>
+      <select id="articleSelect">
+        <option value="">選択してください</option>
+      </select>
+    </div>
+
+    <div class="stat" id="meta">データ読込中…</div>
+  </section>
+
+  <section class="card">
+    <div class="result-title" style="font-size:18px">
+      J-PlatPatで実際のＯＡを確認
+    </div>
+
+    <p style="margin:10px 0 0;line-height:1.7;font-size:14px">
+      願番をコピーしてJ-PlatPatで検索すると、商標、指定商品・指定役務、手続経過、実際の拒絶理由通知などを確認できます。
+    </p>
+
+    <div class="actions">
+      <a class="btn primary"
+         href="https://www.j-platpat.inpit.go.jp/"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('jplatpat_click',{location:'upper_guide'})">
+        J-PlatPatを開く
+      </a>
+    </div>
+  </section>
+
+  <section id="articleResult" class="card hidden">
+    <div class="result-head">
+      <div>
+        <div class="result-title" id="articleTitle"></div>
+        <div class="count" id="articleCount"></div>
+      </div>
+
+      <div class="actions">
+        <button class="secondary" id="copyAll">
+          このページの願番をコピー
+        </button>
+
+        <a class="btn secondary"
+           href="https://www.j-platpat.inpit.go.jp/"
+           target="_blank"
+           rel="noopener"
+           onclick="trackEvent('jplatpat_click',{location:'article_result'})">
+          J-PlatPatを開く
+        </a>
+      </div>
+    </div>
+
+    <div class="notice" style="margin:0 0 12px">
+      J-PlatPatでは一度に検索できる願番は最大100件のため、
+      このページでも100件ずつ表示しています。
+      101件以上ある場合は「次へ」で続きの願番を表示してください。
+    </div>
+
+    <div id="appList" class="app-list"></div>
+    <div id="pager" class="pager"></div>
+  </section>
+
+  <section class="cta-card">
+    <h2 class="cta-title">このページが学習に役立ったら</h2>
+
+    <p class="cta-text">
+      Xの固定ポストに「いいね」を付けていただけるとうれしいです。
+      今後もデータを更新していく励みになります。
+    </p>
+
+    <div class="cta-actions">
+      <!-- ↓ このURLを、告知用のX固定ポストURLに差し替えてください -->
+      <a class="btn cta-main"
+         href="https://x.com/seiji_terada"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('fixed_post_click',{location:'study_cta'})">
+        Xの固定ポストを見る
+      </a>
+    </div>
+  </section>
+
+  <section class="card notice">
+    <div id="dataNote"></div>
+
+    <div style="margin-top:8px">
+      願番をコピーして、J-PlatPatで原文をご確認ください。
+      このページはJ-PlatPatとは独立した学習・検索補助ページです。
+      掲載件数は本ページに収録したデータに基づくもので、すべての商標登録出願を示すものではありません。
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="https://sageip.jp/"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('office_site_click',{location:'footer'})">
+        セージ弁理士事務所
+      </a>
+
+      <a href="https://sageip.jp/column/trademark/officeaction/"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('oa_guide_click',{location:'footer'})">
+        拒絶理由通知とは？
+      </a>
+
+      <a href="https://x.com/seiji_terada"
+         target="_blank"
+         rel="noopener"
+         onclick="trackEvent('x_click',{location:'footer'})">
+        X
+      </a>
+
+      <a href="https://sageip.jp/privacypolicy/"
+         target="_blank"
+         rel="noopener">
+        プライバシーポリシー
+      </a>
+    </div>
+
+    <div>
+      商願ＯＡ 条文検索 ／ 運営：セージ弁理士事務所
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">コピーしました</div>
+
+<script>
+const DATA_URL = "oa_articles.json";
+const PAGE_SIZE = 100;
+
+let DATA = null;
+let currentApps = [];
+let currentPage = 1;
+
+function showToast(text){
+  const el = document.getElementById("toast");
+  el.textContent = text;
+  el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),1200);
+}
+
+async function copyText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("コピーしました");
+  }catch(e){
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    showToast("コピーしました");
+  }
+}
+
+function articleSortTuple(code){
+  if(code.startsWith("68→6-")){
+    const p = parseInt(code.split("-").pop(),10) || 0;
+    return [68,99,p,0,0];
+  }
+
+  return code.split("-").map(x=>{
+    if(x==="柱") return 999;
+    const n = parseInt(x,10);
+    return Number.isFinite(n) ? n : 999;
+  });
+}
+
+function compareTuple(a,b){
+  const A = articleSortTuple(a);
+  const B = articleSortTuple(b);
+  const len = Math.max(A.length,B.length);
+
+  for(let i=0;i<len;i++){
+    const x = A[i] ?? 0;
+    const y = B[i] ?? 0;
+    if(x!==y) return x-y;
+  }
+
+  return a.localeCompare(b,"ja");
+}
+
+function populateSelect(){
+  const sel = document.getElementById("articleSelect");
+  const codes = Object.keys(DATA.articles).sort(compareTuple);
+
+  for(const code of codes){
+    const info = DATA.articles[code];
+    const opt = document.createElement("option");
+    opt.value = code;
+    opt.textContent = `${code}  (${info.count.toLocaleString()}件)`;
+    opt.title = info.full;
+    sel.appendChild(opt);
+  }
+}
+
+function renderArticle(code){
+  const box = document.getElementById("articleResult");
+
+  if(!code || !DATA.articles[code]){
+    box.classList.add("hidden");
+    return;
+  }
+
+  const info = DATA.articles[code];
+
+  currentApps = info.apps;
+  currentPage = 1;
+
+  document.getElementById("articleTitle").textContent = code;
+  document.getElementById("articleCount").textContent =
+    `該当 ${info.count.toLocaleString()}件`;
+
+  box.classList.remove("hidden");
+
+  trackEvent("article_search",{
+    article_code:code,
+    result_count:info.count
+  });
+
+  renderPage();
+}
+
+function renderPage(){
+  const list = document.getElementById("appList");
+  list.innerHTML = "";
+
+  const start = (currentPage-1)*PAGE_SIZE;
+  const end = Math.min(start+PAGE_SIZE,currentApps.length);
+  const slice = currentApps.slice(start,end);
+
+  document.getElementById("copyAll").textContent =
+    `この${end-start}件の願番をコピー`;
+
+  for(const app of slice){
+    const row = document.createElement("div");
+    row.className = "app-row";
+
+    const num = document.createElement("div");
+    num.className = "appnum";
+    num.textContent = app;
+
+    const actions = document.createElement("div");
+    actions.className = "row-actions";
+
+    const copy = document.createElement("button");
+    copy.className = "secondary";
+    copy.textContent = "コピー";
+    copy.addEventListener("click",()=>{
+      copyText(app);
+      trackEvent("appnum_copy",{location:"article_result"});
+    });
+
+    actions.appendChild(copy);
+    row.appendChild(num);
+    row.appendChild(actions);
+    list.appendChild(row);
+  }
+
+  const pager = document.getElementById("pager");
+  pager.innerHTML = "";
+
+  const pages = Math.ceil(currentApps.length/PAGE_SIZE);
+  if(pages<=1) return;
+
+  const prev = document.createElement("button");
+  prev.className = "secondary";
+  prev.textContent = "前へ";
+  prev.disabled = currentPage===1;
+  prev.onclick = ()=>{
+    currentPage--;
+    renderPage();
+    document.getElementById("articleResult")
+      .scrollIntoView({behavior:"smooth"});
+  };
+
+  const info = document.createElement("span");
+  info.textContent =
+    `${currentPage} / ${pages}ページ（${start+1}～${end}件）`;
+
+  const next = document.createElement("button");
+  next.className = "secondary";
+  next.textContent = "次へ";
+  next.disabled = currentPage===pages;
+  next.onclick = ()=>{
+    currentPage++;
+    renderPage();
+    document.getElementById("articleResult")
+      .scrollIntoView({behavior:"smooth"});
+  };
+
+  pager.append(prev,info,next);
+}
+
+document.getElementById("articleSelect")
+  .addEventListener("change",e=>{
+    renderArticle(e.target.value);
+  });
+
+
+document.getElementById("copyAll")
+  .addEventListener("click",()=>{
+    const start = (currentPage-1)*PAGE_SIZE;
+    const end = Math.min(start+PAGE_SIZE,currentApps.length);
+
+    copyText(currentApps.slice(start,end).join("\n"));
+    trackEvent("appnum_copy_bulk",{
+      count:end-start
+    });
+  });
+
+fetch(DATA_URL)
+  .then(r=>{
+    if(!r.ok) throw new Error("JSON load failed");
+    return r.json();
+  })
+  .then(data=>{
+    DATA = data;
+    populateSelect();
+
+    const m = DATA.metadata;
+
+    document.getElementById("meta").textContent =
+      `収録 ${m.unique_applications.toLocaleString()}願番 / `
+      + `条文集計可能 ${m.analyzable_oa.toLocaleString()}件 / `
+      + `ページ最終更新 ${m.generated_at}`;
+
+    document.getElementById("dataNote").textContent = m.note;
+  })
+  .catch(err=>{
+    document.getElementById("meta").textContent =
+      "データを読み込めませんでした。"
+      + " index.html と oa_articles.json が同じフォルダにあるか確認してください。";
+
+    console.error(err);
+  });
+</script>
 </body>
 </html>
